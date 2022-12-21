@@ -23,16 +23,16 @@ void timeStopper(float speed) {
 
 int main()
 {
-    //Переменные х и у
+    //РџРµСЂРµРјРµРЅРЅС‹Рµ С… Рё Сѓ
     double y;
     double x;
 
-    //Переменные Начала отрезка и конца
+    //РџРµСЂРµРјРµРЅРЅС‹Рµ РќР°С‡Р°Р»Р° РѕС‚СЂРµР·РєР° Рё РєРѕРЅС†Р°
     double start = 1, end = 2;
     cout << "Our equation: y = x / (pow(x, 2) + x + 1)" <<  endl;
     cout << "Lets define the boundaries (granitsy)" << endl;
 
-    //Ввод Начала и конца
+    //Р’РІРѕРґ РќР°С‡Р°Р»Р° Рё РєРѕРЅС†Р°
     do {
         if ((end - start < 0)) {
             cout << "error" << endl;
@@ -44,7 +44,7 @@ int main()
     cin >> end;
     } while (end - start < 0);
     
-    //Определение области визначення
+    //РћРїСЂРµРґРµР»РµРЅРёРµ РѕР±Р»Р°СЃС‚Рё РІРёР·РЅР°С‡РµРЅРЅСЏ
     double max = -10000, min = 10000;
     for (x = start; x < end; x = x + PROP) {
         y = EUQ;
@@ -57,7 +57,7 @@ int main()
     }
 
 
-    //Вывод области визначення
+    //Р’С‹РІРѕРґ РѕР±Р»Р°СЃС‚Рё РІРёР·РЅР°С‡РµРЅРЅСЏ
     cout << "From " << start << " to " << end << endl;
     cout << "Defined on [" << min << "," << max << "] " << endl;
     cout << "Press Enter to draw graphic...";
@@ -68,18 +68,18 @@ int main()
         break;
     }
   
-    //Определение точки
+    //РћРїСЂРµРґРµР»РµРЅРёРµ С‚РѕС‡РєРё
     sf::RectangleShape dot(sf::Vector2f(1, 1));
     dot.setFillColor(sf::Color::Red);
 
-    //Определение рисунка единичной черточки
+    //РћРїСЂРµРґРµР»РµРЅРёРµ СЂРёСЃСѓРЅРєР° РµРґРёРЅРёС‡РЅРѕР№ С‡РµСЂС‚РѕС‡РєРё
     int pipkasize = 20;
     sf::RectangleShape pipkaHor(sf::Vector2f(2, pipkasize));
     sf::RectangleShape pipkaVert(sf::Vector2f(pipkasize, 2));
     pipkaHor.setFillColor(sf::Color::White);
     pipkaVert.setFillColor(sf::Color::White);
 
-    //Определение рисунка осей Х и У
+    //РћРїСЂРµРґРµР»РµРЅРёРµ СЂРёСЃСѓРЅРєР° РѕСЃРµР№ РҐ Рё РЈ
     sf::RectangleShape rectHor(sf::Vector2f(WSIZEL, 2));
     sf::RectangleShape rectVert(sf::Vector2f(2, WSIZE));
     rectHor.setFillColor(sf::Color::White);
@@ -87,7 +87,7 @@ int main()
     rectVert.setFillColor(sf::Color::White);
     rectVert.setPosition(WSIZEL / 2, 0);
     
-    //Загрузка шрифта для вывода текста путем мне не понятным
+    //Р—Р°РіСЂСѓР·РєР° С€СЂРёС„С‚Р° РґР»СЏ РІС‹РІРѕРґР° С‚РµРєСЃС‚Р° РїСѓС‚РµРј РјРЅРµ РЅРµ РїРѕРЅСЏС‚РЅС‹Рј
     std::ifstream font_file{ "20470.ttf", ifstream::binary };
     std::vector<char> buffer;
     if (font_file) {
@@ -113,14 +113,14 @@ int main()
         return EXIT_FAILURE;
     }
 
-    //Определение текста для значений на оси Х
+    //РћРїСЂРµРґРµР»РµРЅРёРµ С‚РµРєСЃС‚Р° РґР»СЏ Р·РЅР°С‡РµРЅРёР№ РЅР° РѕСЃРё РҐ
     sf::Text text;
     text.setFont(font);
     text.setCharacterSize(30); // in pixels, not points!
     text.setFillColor(sf::Color::White);
     text.setStyle(sf::Text::Bold);
     
-    //Определение текста для значений на оси У
+    //РћРїСЂРµРґРµР»РµРЅРёРµ С‚РµРєСЃС‚Р° РґР»СЏ Р·РЅР°С‡РµРЅРёР№ РЅР° РѕСЃРё РЈ
     sf::Text textVert1;
     textVert1.setFont(font);
     textVert1.setCharacterSize(30); 
@@ -134,10 +134,10 @@ int main()
     textVert2.setStyle(sf::Text::Bold);
     textVert2.setString("-1");
 
-    //Определение окна
+    //РћРїСЂРµРґРµР»РµРЅРёРµ РѕРєРЅР°
     sf::RenderWindow window(sf::VideoMode(WSIZEL, WSIZE), "Graph");
 
-    //Скорость прокрутки
+    //РЎРєРѕСЂРѕСЃС‚СЊ РїСЂРѕРєСЂСѓС‚РєРё
     float speed = 3;
     sf::Text Speed;
     Speed.setFont(font);
@@ -154,10 +154,10 @@ int main()
     textspeed.setStyle(sf::Text::Bold);
 
 
-    //Открытие окна
+    //РћС‚РєСЂС‹С‚РёРµ РѕРєРЅР°
     while (window.isOpen())
     {
-        //Если нажать ескэйп, то программа завершится
+        //Р•СЃР»Рё РЅР°Р¶Р°С‚СЊ РµСЃРєСЌР№Рї, С‚Рѕ РїСЂРѕРіСЂР°РјРјР° Р·Р°РІРµСЂС€РёС‚СЃСЏ
         sf::Event event;
         while (window.pollEvent(event))
         {
@@ -167,7 +167,7 @@ int main()
                 window.close();
         }
 
-        //масштабирование и хождение по графику
+        //РјР°СЃС€С‚Р°Р±РёСЂРѕРІР°РЅРёРµ Рё С…РѕР¶РґРµРЅРёРµ РїРѕ РіСЂР°С„РёРєСѓ
         /*
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q)) {
             clock_t start1 = clock();
@@ -255,7 +255,7 @@ int main()
 
         window.clear();
 
-        //Отрисовка скорости
+        //РћС‚СЂРёСЃРѕРІРєР° СЃРєРѕСЂРѕСЃС‚Рё
         window.draw(Speed);
         textspeed.setPosition(WSIZEL - 200, 80);
         int first = speed * 10 / 10;
@@ -333,12 +333,12 @@ int main()
 
 
 
-        //Вспомогательные переменные
-        float iterations = (end - start) / PROP;  //Количество точек на графике
-        long double WindSec = (WSIZEL - 100) / (end - start); //Смещение следующего единичного отрезка в пикселях
-        long double Xindex = (WSIZEL - 100) / iterations; //Положение точки на оси Х
+        //Р’СЃРїРѕРјРѕРіР°С‚РµР»СЊРЅС‹Рµ РїРµСЂРµРјРµРЅРЅС‹Рµ
+        float iterations = (end - start) / PROP;  //РљРѕР»РёС‡РµСЃС‚РІРѕ С‚РѕС‡РµРє РЅР° РіСЂР°С„РёРєРµ
+        long double WindSec = (WSIZEL - 100) / (end - start); //РЎРјРµС‰РµРЅРёРµ СЃР»РµРґСѓСЋС‰РµРіРѕ РµРґРёРЅРёС‡РЅРѕРіРѕ РѕС‚СЂРµР·РєР° РІ РїРёРєСЃРµР»СЏС…
+        long double Xindex = (WSIZEL - 100) / iterations; //РџРѕР»РѕР¶РµРЅРёРµ С‚РѕС‡РєРё РЅР° РѕСЃРё РҐ
 
-        //Вывод значений на оси Х
+        //Р’С‹РІРѕРґ Р·РЅР°С‡РµРЅРёР№ РЅР° РѕСЃРё РҐ
         int text_start = 40;
         int tempX = start;
         for (int i = text_start; i < WSIZEL; i = i + WindSec)
@@ -396,7 +396,7 @@ int main()
         }
 
 
-        //Опредение положения оси У и рисовка единичных отрезков оси У
+        //РћРїСЂРµРґРµРЅРёРµ РїРѕР»РѕР¶РµРЅРёСЏ РѕСЃРё РЈ Рё СЂРёСЃРѕРІРєР° РµРґРёРЅРёС‡РЅС‹С… РѕС‚СЂРµР·РєРѕРІ РѕСЃРё РЈ
         int Suk = 50;
         if (start >= 0) {
             pipkaVert.setPosition(25 - pipkasize / 2, Suk);
@@ -439,7 +439,7 @@ int main()
             window.draw(pipkaVert);
         }
 
-        //Рисовка единичных отрезков на оси Х
+        //Р РёСЃРѕРІРєР° РµРґРёРЅРёС‡РЅС‹С… РѕС‚СЂРµР·РєРѕРІ РЅР° РѕСЃРё РҐ
         Suk = 50;
         long double suk2 = Suk;
         pipkaHor.setPosition(Suk, WSIZE / 2 - pipkasize/2);
@@ -450,11 +450,11 @@ int main()
             window.draw(pipkaHor);
         }
         
-        //Рисовка осей Х и У
+        //Р РёСЃРѕРІРєР° РѕСЃРµР№ РҐ Рё РЈ
         window.draw(rectHor);
         window.draw(rectVert);
 
-        //Рисовка графика
+        //Р РёСЃРѕРІРєР° РіСЂР°С„РёРєР°
         long double FirstXpos = 50;
         float Yindex;
         int Position = 50;
@@ -489,7 +489,7 @@ int main()
             window.draw(dot);
         }
 
-        //Вывод
+        //Р’С‹РІРѕРґ
         window.display();
     }
     return 0;
